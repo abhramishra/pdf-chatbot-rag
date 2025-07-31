@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.log
+
+# Virtual Environment
+venv/
+env/
+chatenv/
+
+# Streamlit cache
+.streamlit/
+*.streamlit-*
+
+# Environment variables
+.env
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+temp*.pdf
+*.swp
+*.swo
+
+# Jupyter/IPython
+.ipynb_checkpoints/
+
+# Logs or uploads
+uploads/
+test.ipynb/
