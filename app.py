@@ -38,7 +38,7 @@ embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 st.title("Coversational RAG with PDF uploads and chat history")
 st.write("Upload PDF and chat with their content")
 
-api_key = st.sidebar.text_input("Enter your API Key", type="password")
+api_key = st.sidebar.text_input("Enter your GROQ API Key", type="password")
 
 
 
@@ -125,7 +125,16 @@ if api_key:
                     "configurable": {"session_id": session_id}
                 }
             )
+            final_output = {
+                "output": response["answer"],  # what LangChain tracing expects
+                **response                     # keep rest of the keys like input/context
+            }
+            st.write(final_output)
             
-            st.write(response["answer"])
+            st.write(final_output["output"])
+            if "answer" not in response:
+                st.error("❌ 'answer' key missing in chain response!")
 else:
     st.warning("Please enter an API key!!")
+
+    
