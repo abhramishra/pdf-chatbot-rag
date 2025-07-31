@@ -1,7 +1,7 @@
 streamlit
 langchain-community
 langchain
-langchain-chroma
+# langchain-chroma
 langchain-core
 python-dotenv
 langchain-groq
@@ -10,3 +10,4 @@ sentence-transformers
 pypdf
 wikipedia
 arxiv
+faiss-cpu

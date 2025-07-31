@@ -10,6 +10,7 @@ from langchain.chains import create_history_aware_retriever, create_retrieval_ch
 from langchain.chains.combine_documents import create_stuff_documents_chain
 
 from langchain_chroma import Chroma # vector store DB
+from langchain.vectorstores import FAISS
 
 # Imports for managing chat history in LangChain:
 # - `ChatMessageHistory` (from langchain_community): provides a concrete implementation to store and manage past chat messages.
@@ -70,7 +71,8 @@ if api_key:
         text_splitter = RecursiveCharacterTextSplitter(chunk_size=200, chunk_overlap=50)
         chunks = text_splitter.split_documents(documents)
         
-        vectorStore = Chroma.from_documents(documents=chunks, embedding=embeddings)
+        # vectorStore = Chroma.from_documents(documents=chunks, embedding=embeddings)
+        vectorStore = FAISS.from_documents(documents=chunks, embedding=embeddings)
 
         # res = vectorStore.similarity_search("WHat is my name ?")
         # st.write(res[0].page_content)
