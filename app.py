@@ -64,6 +64,7 @@ if api_key:
             loader = PyPDFLoader(file_path)
             docs = loader.load()
             documents.extend(docs)
+            os.unlink(file_path)  #delete the temp file now that it's no longer needed
         st.write(f"Total documents: {len(documents)}")
 
         text_splitter = RecursiveCharacterTextSplitter(chunk_size=200, chunk_overlap=50)
