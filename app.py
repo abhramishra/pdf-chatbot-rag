@@ -129,7 +129,7 @@ if api_key:
                 "output": response["answer"],  # what LangChain tracing expects
                 **response                     # keep rest of the keys like input/context
             }
-            st.write(final_output)
+            # st.write(final_output)
             
             st.write(final_output["output"])
             if "answer" not in response:
